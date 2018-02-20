@@ -21,6 +21,7 @@ public class ConnectionFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         new ConnectTask().execute("");
         Button button = view.findViewById(R.id.connect);
         button.setOnClickListener(new View.OnClickListener() {

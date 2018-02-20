@@ -1,13 +1,9 @@
 package com.wrathspectre.computercontrol;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -61,8 +57,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.action_connection) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_area, new ConnectionFragment());
-            fragmentTransaction.commit();
+            fragmentTransaction.replace(R.id.fragment_area, new ConnectionFragment()).commit();
             return true;
         }
 
@@ -76,10 +71,9 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
 
         if (id == R.id.controls) {
-
+            fragment = new DesktopControlsFragment();
         } else if (id == R.id.mouse_and_keyboard) {
-            Log.d("D","FFFFFFFFFFF");
-            fragment = new MouseAndKeyboardFragment();
+            fragment = new MouseFragment();
         } else if (id == R.id.shared_content) {
 
         } else if (id == R.id.file_manager) {
@@ -95,8 +89,7 @@ public class MainActivity extends AppCompatActivity
         if(fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_area, fragment);
-            fragmentTransaction.commit();
+            fragmentTransaction.replace(R.id.fragment_area, fragment).commit();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

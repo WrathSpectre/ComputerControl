@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/general"
+        android:title="General"
+        android:icon="@drawable/controls_icon"/>
+
+    <item
+        android:id="@+id/media"
+        android:title="Multimedia"
+        android:icon="@drawable/media_icon"/>
+
+    <item
+        android:id="@+id/presentation"
+        android:title="Presentation"
+        android:icon="@drawable/presentation_icon"/>
+
+    <item
+        android:id="@+id/browser"
+        android:title="Browser"
+        android:icon="@drawable/browser_icon"/>
+
+    <item
+        android:id="@+id/shortcut"
+        android:title="Shortcut"
+        android:icon="@drawable/shortcut_icon"/>
+</menu>
