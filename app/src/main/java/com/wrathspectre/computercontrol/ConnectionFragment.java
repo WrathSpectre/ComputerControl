@@ -2,9 +2,17 @@ package com.wrathspectre.computercontrol;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -22,16 +30,41 @@ public class ConnectionFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        new ConnectTask().execute("");
+        BottomNavigationView navigationView = view.findViewById(R.id.connection_navigation);
+        navigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+
+        /*new ConnectTask().execute("");
         Button button = view.findViewById(R.id.connect);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new sendTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "KIATSO");
             }
-        });
+        });*/
 
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
+        = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+            switch(item.getItemId()) {
+                case R.id.server_list:
+                    fragmentTransaction.replace(R.id.connection_fragment_area, new serverFragment()).commit();
+                    break;
+
+                case R.id.connection_settings:
+                    fragmentTransaction.replace(R.id.connection_fragment_area, new ConnectionSettingsFragment()).commit();
+                    break;
+            }
+
+            return false;
+        }
+    };
 
     public class ConnectTask extends AsyncTask<String, String, NetworkConnection> {
         @Override
@@ -62,5 +95,4 @@ public class ConnectionFragment extends Fragment {
             return null;
         }
     }
-
 }

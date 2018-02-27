@@ -1,5 +1,7 @@
 package com.wrathspectre.computercontrol;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -23,6 +25,9 @@ public class MainActivity extends AppCompatActivity
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            toolbar.setElevation(0);
+        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -55,9 +60,12 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.action_connection) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
+            /*FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_area, new ConnectionFragment()).commit();
+            fragmentTransaction.replace(R.id.fragment_area, new ConnectionFragment()).commit();*/
+
+            Intent i = new Intent(this, ConnectionActivity.class);
+            startActivity(i);
             return true;
         }
 

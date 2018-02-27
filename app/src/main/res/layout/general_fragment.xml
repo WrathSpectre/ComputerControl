@@ -17,8 +17,7 @@
     <LinearLayout
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:layout_marginLeft="8dp"
-         android:layout_marginRight="8dp"
+         android:layout_margin="8dp"
          android:weightSum="4">
 
          <Button
@@ -71,23 +70,20 @@
              android:textSize="10sp"/>
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:layout_height="1dp"
-        android:background="#c0c0c0"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Screen brightness"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="8dp"
         android:weightSum="5">
 
         <SeekBar
@@ -111,7 +107,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="8dp"
         android:weightSum="5">
 
         <ImageView
@@ -129,17 +125,14 @@
             android:text="Turn off screen" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:layout_height="1dp"
-        android:background="#c0c0c0"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
         android:text="Sound volume"/>
 
     <LinearLayout
@@ -169,7 +162,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
         android:weightSum="5">
 
         <ImageView
@@ -186,4 +178,5 @@
             android:layout_marginRight="16dp"
             android:text="Mute" />
     </LinearLayout>
+
 </LinearLayout>
